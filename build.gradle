@@ -1,0 +1,43 @@
+apply plugin: 'war'
+
+version=0.1
+sourceCompatibility=1.6
+
+sourceSets{
+	main{
+		java{
+			srcDirs=['src']
+		}
+	}
+	test{
+		java{
+			srcDirs=['test']
+		}
+	}
+}
+repositories{
+	mavenCentral()
+}
+dependencies {
+	// compile : use for those files which you want at compile time as well as runtime
+	// runtime : use for those files which you want at run time
+	// providedCompile : use for those files which you want ony at compile time
+	compile group:'javax.servlet', name:'servlet-api', version:'2.5'
+	compile group:'javax.servlet', name:'jstl', version:'1.2'
+	compile group:'taglibs', name:'standard', version:'1.1.2'
+	compile group:'org.springframework', name:'spring-core', version:springVersion
+	compile group:'org.springframework', name:'spring-expression', version:springVersion
+	compile group:'org.springframework', name:'spring-beans', version:springVersion
+	compile group:'org.springframework', name:'spring-aop', version:springVersion
+	compile group:'org.springframework', name:'spring-context', version:springVersion
+	compile group:'org.springframework', name:'spring-context-support', version:springVersion
+	compile group:'org.springframework', name:'spring-web', version:springVersion
+	compile group:'org.springframework', name:'spring-webmvc', version:springVersion
+	
+	providedCompile group: 'org.aspectj', name:'aspectjtools', version:'1.7.4'
+	providedCompile group:'aspectj', name:'aspectjweaver', version:'1.5.4'
+	providedCompile group:'com.google.http-client',name:'google-http-client-jackson2',version:googleApiVersion
+	providedCompile group:'com.google.api-client', name:'google-api-client', version:googleApiVersion
+	providedCompile group:'com.fasterxml.jackson.core', name:'jackson-core',version:'2.3.2'
+	providedCompile group:'com.google.apis', name:'google-api-services-calendar', version:'v3-rev87-1.19.0'		
+}
